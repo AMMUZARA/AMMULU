@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Popup Demo</title>
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111;
+            color: red;
+            padding: 30px;
+            border: 3px solid red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            box-shadow: 0 0 20px red;
+        }
+    </style>
 </head>
 <body>
-
-<script>
-    alert("You are hacked");
-</script>
-
+    <div class="popup">
+        <h1>⚠️ YOU ARE HACKED ⚠️</h1>
+        <p>This is only a demo popup.</p>
+    </div>
 </body>
 </html>
