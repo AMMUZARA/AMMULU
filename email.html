@@ -1,49 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f5f5f5;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        form {
-            display: flex;
-            gap: 10px;
-        }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
 
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-        }
+    .search-container {
+      text-align: center;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    .title {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 12px 16px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 400px;
+      max-width: 90vw;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    .search-box input::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .search-box button {
+      border: none;
+      outline: none;
+      background: white;
+      color: #1e3c72;
+      padding: 10px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .search-box button:hover {
+      background: #f1f1f1;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input
-            type="text"
-            name="search_query"
-            placeholder="Search..."
-            required
-        >
-        <button type="submit">Search</button>
+  <div class="search-container">
+    <div class="title">Search Anything</div>
+
+    <form class="search-box" onsubmit="return handleSearch(event)">
+      <input type="text" id="searchInput" placeholder="Type your search..." />
+      <button type="submit">Search</button>
     </form>
+  </div>
+
+  <script>
+    function handleSearch(event) {
+      event.preventDefault();
+      const query = document.getElementById("searchInput").value.trim();
+
+      if (query) {
+        alert("You searched for: " + query);
+        // You can redirect like this:
+        // window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+      }
+    }
+  </script>
 
 </body>
 </html>
+  
